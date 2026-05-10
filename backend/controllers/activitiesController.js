@@ -1,14 +1,20 @@
-const activitiesService = require('../services/activitiesService');
-
-const getActivities = (req, res) => {
-  const activities = activitiesService.getActivities();
-  res.json(activities);
+const getAllActivities = (req, res) => {
+  res.json([
+    {
+      id: 1,
+      name: "Morning Run",
+      distance: 5.2,
+      heart_rate: 158,
+      cadence: 172
+    },
+    {
+      id: 2,
+      name: "Tempo Run",
+      distance: 10,
+      heart_rate: 165,
+      cadence: 168
+    }
+  ]);
 };
 
-const getActivityById = (req, res) => {
-  const { id } = req.params;
-  const activity = activitiesService.getActivityById(id);
-  res.json(activity);
-};
-
-module.exports = { getActivities, getActivityById };
+module.exports = { getAllActivities };

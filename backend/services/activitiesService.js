@@ -1,48 +1,33 @@
-// Mock running data
-const mockActivities = [
-  {
-    id: 1,
-    distance: 5.2, // km
-    time: 1860, // seconds
-    heart_rate: 145, // bpm
-    cadence: 178 // steps/min
-  },
-  {
-    id: 2,
-    distance: 3.8,
-    time: 1440,
-    heart_rate: 138,
-    cadence: 175
-  },
-  {
-    id: 3,
-    distance: 8.5,
-    time: 2520,
-    heart_rate: 155,
-    cadence: 182
-  }
-];
-
 const getActivities = () => {
-  return {
-    status: "success",
-    data: mockActivities,
-    count: mockActivities.length
-  };
+  return [
+    {
+      id: 1,
+      name: "Morning Run",
+      distance_km: 5.2,
+      duration_sec: 1620,
+      pace: 312, // seconds per km
+      heart_rate_avg: 158,
+      cadence_avg: 172
+    },
+    {
+      id: 2,
+      name: "Tempo Run",
+      distance_km: 10,
+      duration_sec: 3600,
+      pace: 360,
+      heart_rate_avg: 165,
+      cadence_avg: 168
+    },
+    {
+      id: 3,
+      name: "Easy Run",
+      distance_km: 3,
+      duration_sec: 900,
+      pace: 300,
+      heart_rate_avg: 150,
+      cadence_avg: 175
+    }
+  ];
 };
 
-const getActivityById = (id) => {
-  const activity = mockActivities.find(a => a.id === parseInt(id));
-  if (!activity) {
-    return {
-      status: "error",
-      message: "Activity not found"
-    };
-  }
-  return {
-    status: "success",
-    data: activity
-  };
-};
-
-module.exports = { getActivities, getActivityById };
+module.exports = { getActivities };
